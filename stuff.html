@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Stuff - The Enrichment Hub</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+        nav {
+            background-color: #1a1a1a;
+            padding: 12px 20px;
+            border-bottom: 3px solid #39ff14;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #39ff14;
+            text-shadow: 2px 2px 0px #1a1a1a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            padding: 5px 10px;
+            border: 1px solid #39ff14;
+            background-color: #1a1a1a;
+        }
+        .nav-links a:hover {
+            background-color: #39ff14;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .main-wrapper {
+            position: relative;
+        }
+        .container {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .content {
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero .subtitle {
+                font-size: 16px;
+            }
+            .hero {
+                padding: 40px 20px 30px;
+            }
+        }
+        h1 {
+            color: #39ff14;
+            text-shadow: 2px 2px 0px #1a1a1a;
+        }
+        p {
+            line-height: 1.5;
+            color: #c0c0c0;
+        }
+        a {
+            color: #39ff14;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #00ff00;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: #1f1f1f;
+            border-bottom: 3px solid #39ff14;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+        .hero .subtitle {
+            font-size: 18px;
+            color: #39ff14;
+            margin-bottom: 15px;
+        }
+        section {
+            padding: 40px 0;
+        }
+        section h2 {
+            color: #39ff14;
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #39ff14;
+            padding-bottom: 5px;
+        }
+        .device-item {
+            background-color: #1f1f1f;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #3a3a3a;
+            border-left: 5px solid #39ff14;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .device-item .device-type {
+            color: #39ff14;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .device-item .device-name {
+            color: #c0c0c0;
+            font-size: 16px;
+        }
+        details {
+            margin-top: 10px;
+        }
+        summary {
+            cursor: pointer;
+            color: #39ff14;
+            font-size: 14px;
+            padding: 5px 0;
+            user-select: none;
+        }
+        summary:hover {
+            color: #00ff00;
+        }
+        .specs-content {
+            background-color: #0a0a0a;
+            padding: 15px;
+            margin-top: 10px;
+            border-left: 3px solid #39ff14;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            color: #a0a0a0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">The Enrichment Hub</div>
+        <div class="nav-links">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>My Stuff</h1>
+        <p class="subtitle">A collection of my things</p>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="container">
+            <div class="content">
+                <section>
+                    <h2>My Devices</h2>
+                    <div class="device-item">
+                        <div style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="device-type">Phone:</span>
+                                <span class="device-name">Samsung Galaxy S25 Ultra</span>
+                            </div>
+                            <details>
+                                <summary>View System Specifications</summary>
+                                <div class="specs-content"><strong>OS:</strong> Android 16 (One UI 8, 7 major upgrades)
+<strong>Processor:</strong> Snapdragon 8 Elite (3nm, Octa-core @ 4.47GHz)
+<strong>RAM:</strong> 12GB LPDDR5X
+<strong>Storage:</strong> 256GB UFS 4.0
+<strong>Display:</strong> 6.9" AMOLED 2X, 1440x3120, 120Hz, 2600 nits
+<strong>Cameras:</strong> 200MP Main, 50MP Ultrawide, 50MP 5x Periscope, 10MP 3x Telephoto
+<strong>Battery:</strong> 5000mAh, 45W wired, 15W wireless
+<strong>Connectivity:</strong> 5G, Wi-Fi 7, Bluetooth 5.4, NFC, UWB
+<strong>Build:</strong> Titanium frame, Gorilla Armor 2, IP68, 218g
+<strong>Features:</strong> S Pen included, In-display fingerprint</div>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="device-item">
+                        <span class="device-type">Smart Watch:</span>
+                        <span class="device-name">Google Pixel Watch 2</span>
+                    </div>
+                    <div class="device-item">
+                        <span class="device-type">Earbuds:</span>
+                        <span class="device-name">CMF Buds Pro 2</span>
+                    </div>
+                    <div class="device-item">
+                        <div style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="device-type">Laptop:</span>
+                                <span class="device-name">Dell Latitude 7480</span>
+                            </div>
+                            <details>
+                                <summary>View System Specifications</summary>
+                                <div class="specs-content"><strong>OS:</strong> Fedora Linux 42 (Kernel 6.17.4)
+<strong>CPU:</strong> Intel Core i7-7600U @ 2.80GHz (2 cores, 4 threads)
+<strong>RAM:</strong> 16GB DDR4 @ 2133MHz (2x8GB)
+<strong>GPU:</strong> Intel HD Graphics 620
+<strong>Storage:</strong> 256GB SSD (Samsung)
+<strong>Motherboard:</strong> Dell Inc. 00F6D3
+<strong>Network:</strong> Intel Ethernet I219-LM + Intel Wireless 8265
+<strong>Audio:</strong> Intel Sunrise Point-LP HD Audio</div>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
