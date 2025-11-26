@@ -41,37 +41,123 @@
             color: #1a1a1a;
             text-decoration: none;
         }
-        .container {
-            max-width: 750px;
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: #1f1f1f;
+            border-bottom: 3px solid #39ff14;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+            color: #39ff14;
+            text-shadow: 2px 2px 0px #1a1a1a;
+        }
+        .hero .subtitle {
+            font-size: 18px;
+            color: #39ff14;
+            margin-bottom: 15px;
+        }
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            max-width: 1400px;
             margin: 30px auto;
             padding: 0 20px;
         }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .hero .subtitle {
-                font-size: 16px;
-            }
-            .hero {
-                padding: 40px 20px 30px;
-            }
-            section h2 {
-                font-size: 20px;
-            }
-            .project-card h3 {
-                font-size: 16px;
-            }
+        .content-panel {
+            min-width: 0;
+        }
+        .posts-panel {
+            background-color: #1f1f1f;
+            border: 2px solid #39ff14;
+            border-radius: 12px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        .posts-panel h2 {
+            color: #39ff14;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #39ff14;
+            padding-bottom: 10px;
+        }
+        .post-item {
+            background-color: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .post-item:hover {
+            border-color: #39ff14;
+            background-color: #333;
+        }
+        .post-item-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .post-item-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #39ff14, #00ff00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+        .post-item-info {
+            flex-grow: 1;
+            min-width: 0;
+        }
+        .post-item-username {
+            color: #e0e0e0;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .post-item-date {
+            color: #888;
+            font-size: 11px;
+        }
+        .post-item-content {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #c0c0c0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .view-all-posts {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border: 2px solid #39ff14;
+            color: #39ff14;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .view-all-posts:hover {
+            background-color: #39ff14;
+            color: #1a1a1a;
         }
         h1 {
             color: #39ff14;
@@ -87,21 +173,6 @@
         }
         a:hover {
             color: #00ff00;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 20px 40px;
-            background-color: #1f1f1f;
-            border-bottom: 3px solid #39ff14;
-        }
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 8px;
-        }
-        .hero .subtitle {
-            font-size: 18px;
-            color: #39ff14;
-            margin-bottom: 15px;
         }
         section {
             padding: 40px 0;
@@ -131,13 +202,134 @@
             flex-direction: column;
             gap: 10px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background-color: #1f1f1f;
+            border: 3px solid #39ff14;
+            padding: 0;
+            max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            border-radius: 16px;
+        }
+        .modal-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #3a3a3a;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            background-color: #1f1f1f;
+            z-index: 10;
+        }
+        .modal-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #39ff14, #00ff00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+        .modal-user-info {
+            flex-grow: 1;
+        }
+        .modal-username {
+            color: #e0e0e0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .modal-close {
+            font-size: 28px;
+            font-weight: bold;
+            color: #39ff14;
+            cursor: pointer;
+            line-height: 1;
+            padding: 5px 10px;
+            margin-left: auto;
+        }
+        .modal-close:hover {
+            color: #00ff00;
+            background-color: rgba(57, 255, 20, 0.1);
+            border-radius: 50%;
+        }
+        .modal-body {
+            padding: 25px 25px 20px 25px;
+        }
+        .modal-post-date {
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .modal-post-content {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .posts-panel {
+                position: static;
+                max-height: none;
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero .subtitle {
+                font-size: 16px;
+            }
+            .hero {
+                padding: 40px 20px 30px;
+            }
+            section h2 {
+                font-size: 20px;
+            }
+            .project-card h3 {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="logo">The Enrichment Hub</div>
         <div class="nav-links">
-            <a href="posts.html">Posts</a>
+            <a href="posts.html">All Posts</a>
             <a href="articles.html">Articles</a>
             <a href="#about">About Me</a>
             <a href="#projects">Projects</a>
@@ -152,8 +344,9 @@
         <p>Welcome to my personal space on the web</p>
     </div>
 
-    <div class="container">
-        <section id="about">
+    <div class="main-container">
+        <div class="content-panel">
+            <section id="about">
                 <h2>About Me</h2>
                 <p><em>Note: "Enrich" is not my real name - I use it online for privacy reasons.</em></p>
                 <p>I'm a new developer learning cybersecurity and C++. I have a passion for both the hardware and software sides of computers - from understanding how processors work to writing efficient code that runs on them.</p>
@@ -180,14 +373,126 @@
                 <h2>Contact Me</h2>
                 <div class="contact-info">
                     <p>Interested in working together or just want to say hi? Feel free to reach out!</p>
-                    <p><strong>Email:</strong> <a href="mailto:contactme@enrichmetwo.win">contactme@enrichmetwo.win</a></p>
-                    <p><strong>GitHub:</strong> <a href="https://github.com/Enrichment2" target="_blank">Enrichment</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/KludgeyLabs" target="_blank">KludgeyLabs</a></p>
                 </div>
             </section>
 
-        <footer style="text-align: center; padding: 30px 20px; border-top: 2px solid #3a3a3a; margin-top: 20px; font-size: 14px; color: #888;">
-            <p>This site was developed with the help of <a href="https://claude.ai" target="_blank">Claude AI</a></p>
-        </footer>
+            <footer style="text-align: center; padding: 30px 20px; border-top: 2px solid #3a3a3a; margin-top: 20px; font-size: 14px; color: #888;">
+                <p>This site was developed with the help of <a href="https://claude.ai" target="_blank">Claude AI</a></p>
+            </footer>
+        </div>
+
+        <div class="posts-panel">
+            <h2>Recent Posts</h2>
+            
+            <div class="post-item" onclick="openModal('November 26, 2025 - 4:03 PM', 'WE GOT CLOUDFLARE!!! I bought a custom domain and got a whole thing setup with cloudflare. I am really excited about this and now my site looks all that much more official')">
+                <div class="post-item-header">
+                    <div class="post-item-avatar">E</div>
+                    <div class="post-item-info">
+                        <div class="post-item-username">Enrich</div>
+                        <div class="post-item-date">November 26, 2025 - 4:03 PM</div>
+                    </div>
+                </div>
+                <div class="post-item-content">
+                    WE GOT CLOUDFLARE!!! I bought a custom domain and got a whole thing setup with cloudflare. I am really excited about this and now my site looks all that much more official
+                </div>
+            </div>
+
+            <div class="post-item" onclick="openModal('November 3, 2025 - 1:44 PM', 'I still exist guys I have just been busy with work and school and other cool things (work).')">
+                <div class="post-item-header">
+                    <div class="post-item-avatar">E</div>
+                    <div class="post-item-info">
+                        <div class="post-item-username">Enrich</div>
+                        <div class="post-item-date">November 3, 2025 - 1:44 PM</div>
+                    </div>
+                </div>
+                <div class="post-item-content">
+                    I still exist guys I have just been busy with work and school and other cool things (work).
+                </div>
+            </div>
+
+            <div class="post-item" onclick="openModal('October 27, 2025 - 10:09 PM', 'I made it so the post thing was more like an actuall social media post layout. if i ever add pictures to posts that will work too. I was just kind of thinking about cool things I could do with the site like get an email list so that if you want an email every time i posted somthing then you could get it. I also will probably add another page where i write more in depth articles about things that are too long to just go in posts. I also plan to make tutorials for multiple different things so look forward to that. I also open sourced a school project that i did. It is a sudoku programm written in C++ that I am actually very proud of it. I have lots of cool ideas for things i can do with the web site.')">
+                <div class="post-item-header">
+                    <div class="post-item-avatar">E</div>
+                    <div class="post-item-info">
+                        <div class="post-item-username">Enrich</div>
+                        <div class="post-item-date">October 27, 2025 - 10:09 PM</div>
+                    </div>
+                </div>
+                <div class="post-item-content">
+                    I made it so the post thing was more like an actuall social media post layout. if i ever add pictures to posts that will work too. I was just kind of thinking about cool things I could do with the site...
+                </div>
+            </div>
+
+            <div class="post-item" onclick="openModal('October 27, 2025 - 8:40 PM', 'Made a bunch of UI/UX updates to the site. I think the recent posts feed makes a whole lot more sense cause now you can click on it to make it bigger and what not. I am having to much fun with this.')">
+                <div class="post-item-header">
+                    <div class="post-item-avatar">E</div>
+                    <div class="post-item-info">
+                        <div class="post-item-username">Enrich</div>
+                        <div class="post-item-date">October 27, 2025 - 8:40 PM</div>
+                    </div>
+                </div>
+                <div class="post-item-content">
+                    Made a bunch of UI/UX updates to the site. I think the recent posts feed makes a whole lot more sense cause now you can click on it to make it bigger and what not. I am having to much fun with this.
+                </div>
+            </div>
+
+            <div class="post-item" onclick="openModal('October 27, 2025 - 8:29 PM', 'I updated the color of everything to match my favorite color more. I like the terminal looking feel to it. and so yeah')">
+                <div class="post-item-header">
+                    <div class="post-item-avatar">E</div>
+                    <div class="post-item-info">
+                        <div class="post-item-username">Enrich</div>
+                        <div class="post-item-date">October 27, 2025 - 8:29 PM</div>
+                    </div>
+                </div>
+                <div class="post-item-content">
+                    I updated the color of everything to match my favorite color more. I like the terminal looking feel to it. and so yeah
+                </div>
+            </div>
+
+            <a href="posts.html" class="view-all-posts">View All Posts →</a>
+        </div>
     </div>
+
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-avatar">E</div>
+                <div class="modal-user-info">
+                    <div class="modal-username">Enrich</div>
+                </div>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-post-date" id="modalDate"></div>
+                <div class="modal-post-content" id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(date, content) {
+            const modal = document.getElementById('postModal');
+            const modalDate = document.getElementById('modalDate');
+            const modalContent = document.getElementById('modalContent');
+
+            modalDate.textContent = date;
+            modalContent.textContent = content;
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('postModal');
+            modal.classList.remove('show');
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('postModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
