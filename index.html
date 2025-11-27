@@ -211,6 +211,51 @@
             font-size: 13px;
             margin-top: 2px;
         }
+        .neocities-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #39ff14;
+            color: #1a1a1a;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 5px;
+            cursor: help;
+            transition: background-color 0.2s ease;
+        }
+        .neocities-badge:hover {
+            background-color: #00ff00;
+        }
+        .info-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #1a1a1a;
+            color: #39ff14;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        .tooltip {
+            display: none;
+            position: fixed;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 2px solid #39ff14;
+            font-size: 13px;
+            max-width: 300px;
+            z-index: 10000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .tooltip.show {
+            display: block;
+        }
         .post-content {
             font-size: 14px;
             line-height: 1.6;
@@ -490,6 +535,10 @@
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">November 3, 2025 - 1:44 PM</div>
+                            <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                                Neocities Era
+                                <span class="info-icon">i</span>
+                            </div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -503,6 +552,10 @@
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 10:09 PM</div>
+                            <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                                Neocities Era
+                                <span class="info-icon">i</span>
+                            </div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -516,6 +569,10 @@
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 8:40 PM</div>
+                            <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                                Neocities Era
+                                <span class="info-icon">i</span>
+                            </div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -529,6 +586,10 @@
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 8:29 PM</div>
+                            <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                                Neocities Era
+                                <span class="info-icon">i</span>
+                            </div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -542,6 +603,10 @@
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 8:22 PM</div>
+                            <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                                Neocities Era
+                                <span class="info-icon">i</span>
+                            </div>
                         </div>
                     </div>
                     <div class="post-content">
@@ -570,10 +635,12 @@
         <p>This site was developed with the help of <a href="https://claude.ai" target="_blank">Claude AI</a></p>
     </footer>
 
+    <div id="tooltip" class="tooltip"></div>
+
     <div id="postModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-avatar"><img src="https://github.com/user-attachments/assets/5fd37d8f-e0c0-4e56-909a-dce38b0f1e11" alt="Profile"></div>
+                <div class="modal-avatar"><img src="profile_pic.png" alt="Profile"></div>
                 <div class="modal-user-info">
                     <div class="modal-username">Enrich</div>
                 </div>
@@ -587,6 +654,30 @@
     </div>
 
     <script>
+        function showTooltip(event) {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.textContent = 'These posts were made when the website was still hosted on Neocities before moving to Cloudflare.';
+            tooltip.classList.add('show');
+            
+            // Position the tooltip near the cursor
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            tooltip.style.left = x + 10 + 'px';
+            tooltip.style.top = y + 10 + 'px';
+            
+            // Hide tooltip when clicking anywhere else
+            setTimeout(() => {
+                document.addEventListener('click', hideTooltip);
+            }, 100);
+        }
+        
+        function hideTooltip() {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.classList.remove('show');
+            document.removeEventListener('click', hideTooltip);
+        }
+
         function openModal(date, content) {
             const modal = document.getElementById('postModal');
             const modalDate = document.getElementById('modalDate');
