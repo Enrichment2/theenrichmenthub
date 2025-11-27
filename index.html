@@ -191,6 +191,12 @@
             font-weight: bold;
             font-size: 18px;
             color: #1a1a1a;
+            overflow: hidden;
+        }
+        .post-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .post-info {
             flex-grow: 1;
@@ -322,6 +328,12 @@
             font-weight: bold;
             font-size: 22px;
             color: #1a1a1a;
+            overflow: hidden;
+        }
+        .modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .modal-user-info {
             flex-grow: 1;
@@ -448,7 +460,7 @@
             <div class="posts-grid">
                 <div class="post-card" onclick="openModal('November 26, 2025 - 10:38 PM', 'I updated the UI and UX a lot. Give me feedback if you think I should change things!')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">November 26, 2025 - 10:38 PM</div>
@@ -461,7 +473,7 @@
 
                 <div class="post-card" onclick="openModal('November 26, 2025 - 4:03 PM', 'WE GOT CLOUDFLARE!!! I bought a custom domain and got a whole thing setup with cloudflare. I am really excited about this and now my site looks all that much more official')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">November 26, 2025 - 4:03 PM</div>
@@ -474,7 +486,7 @@
 
                 <div class="post-card" onclick="openModal('November 3, 2025 - 1:44 PM', 'I still exist guys I have just been busy with work and school and other cool things (work).')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">November 3, 2025 - 1:44 PM</div>
@@ -487,7 +499,7 @@
 
                 <div class="post-card" onclick="openModal('October 27, 2025 - 10:09 PM', 'I made it so the post thing was more like an actuall social media post layout. if i ever add pictures to posts that will work too. I was just kind of thinking about cool things I could do with the site like get an email list so that if you want an email every time i posted somthing then you could get it. I also will probably add another page where i write more in depth articles about things that are too long to just go in posts. I also plan to make tutorials for multiple different things so look forward to that. I also open sourced a school project that i did. It is a sudoku programm written in C++ that I am actually very proud of it. I have lots of cool ideas for things i can do with the web site.')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 10:09 PM</div>
@@ -500,7 +512,7 @@
 
                 <div class="post-card" onclick="openModal('October 27, 2025 - 8:40 PM', 'Made a bunch of UI/UX updates to the site. I think the recent posts feed makes a whole lot more sense cause now you can click on it to make it bigger and what not. I am having to much fun with this.')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 8:40 PM</div>
@@ -513,7 +525,7 @@
 
                 <div class="post-card" onclick="openModal('October 27, 2025 - 8:29 PM', 'I updated the color of everything to match my favorite color more. I like the terminal looking feel to it. and so yeah')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 8:29 PM</div>
@@ -526,7 +538,7 @@
 
                 <div class="post-card" onclick="openModal('October 27, 2025 - 8:22 PM', 'Added a new page to my site listing all my devices. I will add more to this page as I go on but as of right now it is very simple. I will probably add drop downs so you can see the full specs of all my devices.')">
                     <div class="post-card-header">
-                        <div class="post-avatar">E</div>
+                        <div class="post-avatar"><img src="profile_pic.png" alt="Profile"></div>
                         <div class="post-info">
                             <div class="post-username">Enrich</div>
                             <div class="post-date">October 27, 2025 - 8:22 PM</div>
@@ -561,7 +573,7 @@
     <div id="postModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-avatar">E</div>
+                <div class="modal-avatar"><img src="https://github.com/user-attachments/assets/5fd37d8f-e0c0-4e56-909a-dce38b0f1e11" alt="Profile"></div>
                 <div class="modal-user-info">
                     <div class="modal-username">Enrich</div>
                 </div>
