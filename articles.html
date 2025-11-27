@@ -124,6 +124,12 @@
             font-weight: bold;
             font-size: 12px;
             color: #1a1a1a;
+            overflow: hidden;
+        }
+        .article-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .article-content {
             font-size: 16px;
@@ -181,10 +187,36 @@
         <article class="article" onclick="toggleArticle(this)">
             <div class="article-header">
                 <div class="article-header-content">
+                    <h2 class="article-title">The Cloudflare Journey</h2>
+                    <div class="article-meta">
+                        <div class="article-author">
+                            <div class="article-avatar"><img src="profile_pic.png" alt="Profile"></div>
+                            <span>Enrich</span>
+                        </div>
+                        <span>·</span>
+                        <span>November 26, 2025</span>
+                    </div>
+                </div>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+            <div class="article-content">
+                <p>When I first got into computers many years ago I always told myself "One day I will have my own website" and after about 7 years I actually do!</p>
+
+                <p>I first got into web dev in 7th grade when I took a HTML class and holy crap did that class inspire me. I made a website and went around giving the link to my website that was stored on my school computer... yeah I didn't know that much. But ever since then I have always said that I will have my own website to post and code and do anything I want on; and now I do!</p>
+
+                <p>It took some work (and lots of help from Claude!) But I got myself a domain and uploaded my site onto github and then connected that repo to Cloudflare. It's crazy to think that my entire website is technically open source but here we are. As someone who stans so hard for the use of open source software in a world of Microsoft's and Googles, I am proud to say that my website is open source. This might cause problems in the future but meh, who cares.</p>
+
+                <p>This project was definitely an interesting but cool. I learned so many thing like domain purchasing, Cloudflare hosting, and even git! Git is so cool I will probably do another article about git all on its own cause git is crazy useful to me. I also learned to be ok with and use the resources that I have. I could do this all for free but I want the privilege of owning my own domain. This is too cool!</p>
+            </div>
+        </article>
+
+        <article class="article" onclick="toggleArticle(this)">
+            <div class="article-header">
+                <div class="article-header-content">
                     <h2 class="article-title">My Reason for Using Android Over iOS</h2>
                     <div class="article-meta">
                         <div class="article-author">
-                            <div class="article-avatar">E</div>
+                            <div class="article-avatar"><img src="profile_pic.png" alt="Profile"></div>
                             <span>Enrich</span>
                         </div>
                     </div>
