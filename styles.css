@@ -85,7 +85,6 @@ body {
     color: var(--text-secondary);
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
-    animation: terminal-flicker 0.15s infinite;
 }
 
 /* Subtle Scanline Effect */
@@ -320,7 +319,6 @@ nav::before {
     font-family: 'Courier New', monospace;
     letter-spacing: 4px;
     border: none;
-    animation: terminal-flicker 2s infinite;
 }
 
 .hero h1::before {
@@ -1086,62 +1084,285 @@ summary:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Reduce scanline effect on mobile for better performance */
+    body::before {
+        opacity: 0.2;
+    }
+
+    /* Mobile Navigation */
     nav::before {
-        font-size: 8px;
+        font-size: 7px;
         padding: 5px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .nav-container {
         flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
+        gap: 12px;
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+        text-align: center;
     }
 
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
+        width: 100%;
     }
 
+    .nav-links a {
+        padding: 8px 12px;
+        font-size: 11px;
+        flex: 0 1 auto;
+    }
+
+    .theme-toggle-container {
+        order: -1;
+    }
+
+    /* Hero Section Mobile */
     .hero {
-        padding: 60px 20px;
+        padding: 50px 15px;
     }
 
     .hero h1 {
-        font-size: 32px;
-        letter-spacing: 2px;
+        font-size: 28px;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .hero h1::before {
+        content: '$ ';
     }
 
     .hero .subtitle {
-        font-size: 16px;
+        font-size: 14px;
+        letter-spacing: 1px;
     }
 
+    .hero p {
+        font-size: 13px;
+    }
+
+    /* Container Mobile */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Sections Mobile */
     section {
-        padding: 50px 0;
+        padding: 40px 0;
     }
 
     section h2 {
-        font-size: 24px;
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
     }
 
+    section h2::after {
+        width: 80px;
+    }
+
+    /* Posts Grid Mobile */
     .posts-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
+    .post-card::before {
+        font-size: 9px;
+        padding: 6px 12px;
+    }
+
+    .post-card-header {
+        padding: 12px 15px 0 15px;
+    }
+
+    .post-content {
+        padding: 0 15px 15px 15px;
+        font-size: 12px;
+    }
+
+    /* Posts Page Mobile */
+    .post::before {
+        font-size: 9px;
+        padding: 5px 12px;
+    }
+
+    .post > div {
+        padding: 12px;
+    }
+
+    .post-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    /* Articles Mobile */
     h1 {
         font-size: 24px;
-    }
-
-    .article-title {
-        font-size: 20px;
+        letter-spacing: 1px;
     }
 
     .article {
         margin-bottom: 20px;
     }
 
-    .article-header,
-    .article-content.open {
+    .article::before {
+        font-size: 9px;
+        padding: 6px 15px;
+    }
+
+    .article-title {
+        font-size: 18px;
+        letter-spacing: 0.5px;
+    }
+
+    .article-header {
         padding: 15px 20px;
+    }
+
+    .article-content.open {
+        padding: 20px;
+    }
+
+    .article-meta {
+        font-size: 11px;
+        flex-wrap: wrap;
+    }
+
+    /* Modal Mobile */
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .modal-content::before {
+        font-size: 11px;
+        padding: 8px 15px;
+    }
+
+    .modal-header {
+        padding: 15px 20px;
+    }
+
+    .modal-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-post-content {
+        font-size: 14px;
+    }
+
+    /* Contact Section Mobile */
+    .contact-content {
+        padding: 20px;
+    }
+
+    .contact-content p {
+        font-size: 14px;
+    }
+
+    /* About Section Mobile */
+    #about .about-content {
+        padding: 20px;
+    }
+
+    #about p {
+        font-size: 14px;
+    }
+
+    /* Footer Mobile */
+    footer {
+        padding: 25px 15px;
+        font-size: 11px;
+    }
+
+    footer::before {
+        font-size: 8px;
+        overflow: hidden;
+    }
+
+    /* View All Posts Button Mobile */
+    .view-all-posts {
+        padding: 12px 30px;
+        font-size: 13px;
+    }
+
+    /* Device Items Mobile */
+    .device-item {
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .device-item .device-type,
+    .device-item .device-name {
+        font-size: 13px;
+    }
+
+    .specs-content {
+        font-size: 10px;
+        padding: 12px;
+    }
+
+    /* Reduce glow effects on mobile for better performance */
+    nav,
+    .post-card:hover,
+    .article:hover,
+    .post:hover {
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .theme-toggle:hover {
+        animation: none;
+    }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero .subtitle {
+        font-size: 13px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    .post-card-header,
+    .post > div {
+        gap: 10px;
+    }
+
+    .article-title {
+        font-size: 16px;
     }
 }
