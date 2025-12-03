@@ -12,6 +12,11 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     if (window.netlifyIdentity) {
+      // Configure Identity to use the Netlify site URL
+      window.netlifyIdentity.init({
+        APIUrl: "https://sensational-mandazi-51db5c.netlify.app/.netlify/identity"
+      });
+
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
