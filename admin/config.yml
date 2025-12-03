@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: "src/images" # Media files will be stored in the repo under src/images
+public_folder: "/images" # The src attribute for uploaded media will begin with /images
+
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/post
+    label: "Posts" # Used in the UI
+    folder: "src/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "hidden", default: "posts"}
+      - {label: "Neocities Era", name: "neocitiesEra", widget: "boolean", required: false, default: false}
+      - {label: "Body", name: "body", widget: "markdown"}

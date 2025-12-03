@@ -1,0 +1,53 @@
+---
+layout: base.njk
+---
+
+<div class="container">
+    <article>
+        <div class="post-card">
+            <div class="post-card-header">
+                <div class="post-avatar"><img src="/profile_pic.png" alt="Profile"></div>
+                <div class="post-info">
+                    <div class="post-username">Enrich</div>
+                    <div class="post-date">{{ date | readableDate }}</div>
+                    {% if neocitiesEra %}
+                    <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                        Neocities Era
+                        <span class="info-icon">i</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="post-content" style="-webkit-line-clamp: unset;">
+                {{ content | safe }}
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/all-posts/" class="view-all-posts">← Back to All Posts</a>
+        </div>
+    </article>
+</div>
+
+<script>
+    function showTooltip(event) {
+        const tooltip = document.getElementById('tooltip');
+        tooltip.textContent = 'These posts were made when the website was still hosted on Neocities before moving to Cloudflare.';
+        tooltip.classList.add('show');
+
+        const x = event.clientX;
+        const y = event.clientY;
+
+        tooltip.style.left = x + 10 + 'px';
+        tooltip.style.top = y + 10 + 'px';
+
+        setTimeout(() => {
+            document.addEventListener('click', hideTooltip);
+        }, 100);
+    }
+
+    function hideTooltip() {
+        const tooltip = document.getElementById('tooltip');
+        tooltip.classList.remove('show');
+        document.removeEventListener('click', hideTooltip);
+    }
+</script>

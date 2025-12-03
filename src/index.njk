@@ -1,0 +1,130 @@
+---
+layout: base.njk
+title: Home
+---
+
+<div class="hero">
+    <h1>Hi, I'm Enrich</h1>
+    <p class="subtitle">Computer Nerd | Gamer | Creator</p>
+    <p>Welcome to my personal space on the web</p>
+</div>
+
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p><em>Note: "Enrich" is not my real name - I use it online for privacy reasons.</em></p>
+            <p>I'm a new developer learning cybersecurity and C++. I have a passion for both the hardware and software sides of computers - from understanding how processors work to writing efficient code that runs on them.</p>
+            <p>Currently diving deep into low-level programming, system security, and building my own Linux system from scratch. Every day is a new opportunity to learn something fascinating about how computers really work under the hood.</p>
+        </div>
+    </div>
+</section>
+
+<section id="posts">
+    <div class="container">
+        <h2>Recent Posts</h2>
+        <div class="posts-grid">
+            {% for post in collections.posts | reverse | slice(0, 9) %}
+            <div class="post-card" onclick="openModal('{{ post.data.date | readableDate }}', {{ post.templateContent | dump | safe }})">
+                <div class="post-card-header">
+                    <div class="post-avatar"><img src="/profile_pic.png" alt="Profile"></div>
+                    <div class="post-info">
+                        <div class="post-username">Enrich</div>
+                        <div class="post-date">{{ post.data.date | readableDate }}</div>
+                        {% if post.data.neocitiesEra %}
+                        <div class="neocities-badge" onclick="event.stopPropagation(); showTooltip(event)">
+                            Neocities Era
+                            <span class="info-icon">i</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="post-content">
+                    {{ post.templateContent | safe }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="posts-footer">
+            <a href="/all-posts/" class="view-all-posts">View All Posts →</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <div class="contact-content">
+            <p>Interested in working together or just want to say hi? Feel free to reach out!</p>
+            <p><strong>Email:</strong> <a href="mailto:contactme@enrichmetwo.win">contactme@enrichmetwo.win</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/Enrichment2" target="_blank">Enrichment2</a></p>
+        </div>
+    </div>
+</section>
+
+<div id="postModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-avatar"><img src="/profile_pic.png" alt="Profile"></div>
+            <div class="modal-user-info">
+                <div class="modal-username">Enrich</div>
+            </div>
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="modal-post-date" id="modalDate"></div>
+            <div class="modal-post-content" id="modalContent"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTooltip(event) {
+        const tooltip = document.getElementById('tooltip');
+        tooltip.textContent = 'These posts were made when the website was still hosted on Neocities before moving to Cloudflare.';
+        tooltip.classList.add('show');
+
+        const x = event.clientX;
+        const y = event.clientY;
+
+        tooltip.style.left = x + 10 + 'px';
+        tooltip.style.top = y + 10 + 'px';
+
+        setTimeout(() => {
+            document.addEventListener('click', hideTooltip);
+        }, 100);
+    }
+
+    function hideTooltip() {
+        const tooltip = document.getElementById('tooltip');
+        tooltip.classList.remove('show');
+        document.removeEventListener('click', hideTooltip);
+    }
+
+    function openModal(date, content) {
+        const modal = document.getElementById('postModal');
+        const modalDate = document.getElementById('modalDate');
+        const modalContent = document.getElementById('modalContent');
+
+        modalDate.textContent = date;
+        // If content is HTML string, set as HTML, otherwise set as text
+        if (typeof content === 'string') {
+            modalContent.innerHTML = content;
+        } else {
+            modalContent.textContent = content;
+        }
+        modal.classList.add('show');
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('postModal');
+        modal.classList.remove('show');
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('postModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>

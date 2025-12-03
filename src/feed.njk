@@ -1,0 +1,27 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>The Enrichment Hub</title>
+  <subtitle>Computer Nerd | Gamer | Creator</subtitle>
+  <link href="https://enrichmetwo.win/feed.xml" rel="self"/>
+  <link href="https://enrichmetwo.win/"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://enrichmetwo.win/</id>
+  <author>
+    <name>Enrich</name>
+    <email>contactme@enrichmetwo.win</email>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  {% set absolutePostUrl %}{{ post.url | absoluteUrl("https://enrichmetwo.win") }}{% endset %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>
