@@ -8,8 +8,7 @@ permalink: /all-posts/
     <h1>All Posts</h1>
 
     {% for post in collections.posts %}
-    <div class="post" data-title="{{ post.data.title }}" data-date="{{ post.data.date | readableDate }}" onclick="openModalFromCard(this)">
-        <h3 class="post-title">{{ post.data.title }}</h3>
+    <div class="post" data-date="{{ post.data.date | readableDate }}" onclick="openModalFromCard(this)">
         <div class="post-header">
             <div class="post-avatar"><img src="/profile_pic.png" alt="Profile"></div>
             <div class="post-username">Enrich</div>
@@ -34,12 +33,11 @@ permalink: /all-posts/
             <div class="modal-avatar"><img src="/profile_pic.png" alt="Profile"></div>
             <div class="modal-user-info">
                 <div class="modal-username">Enrich</div>
+                <div class="modal-post-date" id="modalDate"></div>
             </div>
             <span class="modal-close" onclick="closeModal()">&times;</span>
         </div>
         <div class="modal-body">
-            <h2 id="modalTitle" style="color: var(--accent-color); margin-bottom: 15px;"></h2>
-            <div class="modal-post-date" id="modalDate"></div>
             <div class="modal-post-content" id="modalContent"></div>
         </div>
     </div>
@@ -69,21 +67,18 @@ permalink: /all-posts/
     }
 
     function openModalFromCard(cardElement) {
-        const title = cardElement.getAttribute('data-title');
         const date = cardElement.getAttribute('data-date');
         const contentElement = cardElement.querySelector('.post-content');
         const content = contentElement.innerHTML;
 
-        openModal(title, date, content);
+        openModal(date, content);
     }
 
-    function openModal(title, date, content) {
+    function openModal(date, content) {
         const modal = document.getElementById('postModal');
-        const modalTitle = document.getElementById('modalTitle');
         const modalDate = document.getElementById('modalDate');
         const modalContent = document.getElementById('modalContent');
 
-        modalTitle.textContent = title;
         modalDate.textContent = date;
         if (typeof content === 'string') {
             modalContent.innerHTML = content;
