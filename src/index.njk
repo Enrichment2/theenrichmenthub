@@ -24,8 +24,8 @@ title: Home
     <div class="container">
         <h2>Recent Posts</h2>
         <div class="posts-grid">
-            {% for post in collections.posts | reverse | slice(0, 9) %}
-            <div class="post-card" onclick="openModal('{{ post.data.date | readableDate }}', {{ post.templateContent | dump | safe }})">
+            {% for post in collections.posts | slice(0, 9) %}
+            <div class="post-card" onclick="openModal('{{ post.data.title }}', '{{ post.data.date | readableDate }}', {{ post.templateContent | dump | safe }})">
                 <div class="post-card-header">
                     <div class="post-avatar"><img src="/profile_pic.png" alt="Profile"></div>
                     <div class="post-info">
@@ -72,6 +72,7 @@ title: Home
             <span class="modal-close" onclick="closeModal()">&times;</span>
         </div>
         <div class="modal-body">
+            <h2 id="modalTitle" style="color: var(--accent-color); margin-bottom: 15px;"></h2>
             <div class="modal-post-date" id="modalDate"></div>
             <div class="modal-post-content" id="modalContent"></div>
         </div>
@@ -101,11 +102,13 @@ title: Home
         document.removeEventListener('click', hideTooltip);
     }
 
-    function openModal(date, content) {
+    function openModal(title, date, content) {
         const modal = document.getElementById('postModal');
+        const modalTitle = document.getElementById('modalTitle');
         const modalDate = document.getElementById('modalDate');
         const modalContent = document.getElementById('modalContent');
 
+        modalTitle.textContent = title;
         modalDate.textContent = date;
         // If content is HTML string, set as HTML, otherwise set as text
         if (typeof content === 'string') {

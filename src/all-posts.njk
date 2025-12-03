@@ -7,8 +7,8 @@ permalink: /all-posts/
 <div class="container">
     <h1>All Posts</h1>
 
-    {% for post in collections.posts | reverse %}
-    <div class="post" onclick="openModal('{{ post.data.date | readableDate }}', {{ post.templateContent | dump | safe }})">
+    {% for post in collections.posts %}
+    <div class="post" onclick="openModal('{{ post.data.title }}', '{{ post.data.date | readableDate }}', {{ post.templateContent | dump | safe }})">
         <div class="post-avatar"><img src="/profile_pic.png" alt="Profile"></div>
         <div class="post-main">
             <div class="post-header">
@@ -21,6 +21,7 @@ permalink: /all-posts/
                 </span>
                 {% endif %}
             </div>
+            <h3 style="color: var(--accent-color); margin: 10px 0;">{{ post.data.title }}</h3>
             <div class="post-content" style="-webkit-line-clamp: unset;">
                 {{ post.templateContent | safe }}
             </div>
@@ -39,6 +40,7 @@ permalink: /all-posts/
             <span class="modal-close" onclick="closeModal()">&times;</span>
         </div>
         <div class="modal-body">
+            <h2 id="modalTitle" style="color: var(--accent-color); margin-bottom: 15px;"></h2>
             <div class="modal-post-date" id="modalDate"></div>
             <div class="modal-post-content" id="modalContent"></div>
         </div>
@@ -68,11 +70,13 @@ permalink: /all-posts/
         document.removeEventListener('click', hideTooltip);
     }
 
-    function openModal(date, content) {
+    function openModal(title, date, content) {
         const modal = document.getElementById('postModal');
+        const modalTitle = document.getElementById('modalTitle');
         const modalDate = document.getElementById('modalDate');
         const modalContent = document.getElementById('modalContent');
 
+        modalTitle.textContent = title;
         modalDate.textContent = date;
         if (typeof content === 'string') {
             modalContent.innerHTML = content;
