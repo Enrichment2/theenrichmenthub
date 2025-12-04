@@ -2,6 +2,8 @@ backend:
   name: github
   repo: Enrichment2/theenrichmenthub
   branch: main
+  base_url: https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev
+  # Update the base_url above after deploying the Cloudflare Worker
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
