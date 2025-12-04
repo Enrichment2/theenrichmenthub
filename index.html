@@ -18,7 +18,7 @@
                 <a href="articles.html">Articles</a>
                 <div class="theme-toggle-container">
                     <div class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
-                        <div class="theme-toggle-slider" id="themeSlider">🌙</div>
+                        <div class="theme-toggle-slider" id="themeSlider">🍌</div>
                     </div>
                 </div>
             </div>
@@ -293,7 +293,7 @@
             if (isLightMode) {
                 root.classList.remove('light-mode');
                 themeToggle.classList.remove('light');
-                themeSlider.textContent = '🌙';
+                themeSlider.textContent = '🍌';
                 localStorage.setItem('theme', 'dark');
             } else {
                 root.classList.add('light-mode');
@@ -319,7 +319,7 @@
                 // Default to dark mode
                 root.classList.remove('light-mode');
                 themeToggle.classList.remove('light');
-                themeSlider.textContent = '🌙';
+                themeSlider.textContent = '🍌';
                 localStorage.setItem('theme', 'dark');
             }
         });
