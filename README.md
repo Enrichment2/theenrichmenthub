@@ -4,14 +4,14 @@ Welcome to my personal website repository! This is the home of my online presenc
 
 ## About
 
-This is a personal website built with Eleventy (11ty) static site generator, featuring a clean, terminal-inspired design with a fun food-themed dark/light mode toggle. The site uses Netlify CMS for easy content management while being hosted on Cloudflare Pages for optimal performance.
+This is a personal website built with Eleventy (11ty) static site generator, featuring a clean, terminal-inspired design with a fun food-themed dark/light mode toggle. The site uses Decap CMS for easy content management while being hosted on Cloudflare Pages for optimal performance.
 
 ## Tech Stack
 
 - **Static Site Generator**: Eleventy (11ty)
-- **Content Management**: Netlify CMS with Git Gateway
+- **Content Management**: Decap CMS with GitHub OAuth
 - **Hosting**: Cloudflare Pages
-- **Authentication**: Netlify Identity
+- **Authentication**: GitHub OAuth (100% free, unlimited)
 - **Styling**: Custom CSS with CSS variables for theming
 - **Templates**: Nunjucks (.njk)
 
@@ -59,12 +59,16 @@ This is a personal website built with Eleventy (11ty) static site generator, fea
 ### Creating Posts
 
 Posts can be created in two ways:
-1. **Via CMS**: Access `/admin/` on the live site and use Netlify CMS
+1. **Via CMS**: Access `/admin/` on the live site and use Decap CMS
 2. **Manually**: Add markdown files to `src/posts/` following the existing format
 
 ## Deployment
 
-The site automatically deploys to Cloudflare Pages when changes are pushed to the `main` branch. Netlify CMS commits directly to the GitHub repository, triggering automatic rebuilds.
+The site automatically deploys to Cloudflare Pages when changes are pushed to the `main` branch. Decap CMS commits directly to the GitHub repository, triggering automatic rebuilds.
+
+### Setting up GitHub OAuth for Decap CMS
+
+Decap CMS uses GitHub's authentication directly - no third-party services needed! When you visit `/admin/`, you'll be prompted to authenticate with GitHub. This is 100% free with unlimited usage since it's just GitHub OAuth.
 
 ## Status
 

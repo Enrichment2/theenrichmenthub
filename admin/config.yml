@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Enrichment2/theenrichmenthub
   branch: main
 
 # Uncomment below to enable drafts
