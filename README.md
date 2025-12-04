@@ -4,12 +4,12 @@ Welcome to my personal website repository! This is the home of my online presenc
 
 ## About
 
-This is a personal website built with Eleventy (11ty) static site generator, featuring a clean, terminal-inspired design with a fun food-themed dark/light mode toggle. The site uses Decap CMS for easy content management while being hosted on Cloudflare Pages for optimal performance.
+This is a personal website built with Eleventy (11ty) static site generator, featuring a clean, terminal-inspired design with a fun food-themed dark/light mode toggle. The site uses Sveltia CMS for easy content management while being hosted on Cloudflare Pages for optimal performance.
 
 ## Tech Stack
 
 - **Static Site Generator**: Eleventy (11ty)
-- **Content Management**: Decap CMS with GitHub OAuth
+- **Content Management**: Sveltia CMS with GitHub OAuth
 - **Hosting**: Cloudflare Pages
 - **Authentication**: GitHub OAuth (100% free, unlimited)
 - **Styling**: Custom CSS with CSS variables for theming
@@ -19,7 +19,7 @@ This is a personal website built with Eleventy (11ty) static site generator, fea
 
 - **🍌🧀 Food-Themed Mode Toggle**: Banana emoji for dark mode, cheese emoji for light mode
 - **Responsive Design**: Works great on desktop and mobile devices
-- **Content Management**: Easy post creation via Netlify CMS at `/admin/`
+- **Content Management**: Easy post creation via Sveltia CMS at `/admin/`
 - **RSS Feed**: Subscribe to updates at `/feed.xml`
 - **Clean Navigation**: Easy-to-use navigation system across all pages
 - **Terminal Aesthetic**: Dark grey and neon green color scheme
@@ -59,16 +59,16 @@ This is a personal website built with Eleventy (11ty) static site generator, fea
 ### Creating Posts
 
 Posts can be created in two ways:
-1. **Via CMS**: Access `/admin/` on the live site and use Decap CMS
+1. **Via CMS**: Access `/admin/` on the live site and use Sveltia CMS
 2. **Manually**: Add markdown files to `src/posts/` following the existing format
 
 ## Deployment
 
-The site automatically deploys to Cloudflare Pages when changes are pushed to the `main` branch. Decap CMS commits directly to the GitHub repository, triggering automatic rebuilds.
+The site automatically deploys to Cloudflare Pages when changes are pushed to the `main` branch. Sveltia CMS commits directly to the GitHub repository, triggering automatic rebuilds.
 
-### Setting up GitHub OAuth for Decap CMS
+### Setting up GitHub OAuth for Sveltia CMS
 
-Decap CMS uses GitHub's authentication directly - no third-party services needed! When you visit `/admin/`, you'll be prompted to authenticate with GitHub. This is 100% free with unlimited usage since it's just GitHub OAuth.
+Sveltia CMS uses GitHub's authentication directly - no third-party services or OAuth gateways needed! When you visit `/admin/`, you'll be prompted to authenticate with GitHub. This is 100% free with unlimited usage since it authenticates directly with GitHub.
 
 ## Status
 
