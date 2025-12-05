@@ -1,0 +1,144 @@
+---
+layout: base.njk
+title: 404 - Page Not Found
+permalink: /404.html
+---
+
+<style>
+.error-container {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.error-code {
+    font-size: 120px;
+    font-family: 'Courier New', monospace;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px var(--accent-glow);
+    margin: 0;
+    line-height: 1;
+    animation: glitch 3s infinite;
+}
+
+.error-message {
+    font-size: 24px;
+    color: var(--text-secondary);
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.error-message::before {
+    content: '> ';
+    color: var(--accent-color);
+}
+
+.error-description {
+    font-size: 16px;
+    color: var(--text-tertiary);
+    margin: 20px 0 40px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.error-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.error-link {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 12px 24px;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.error-link:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.error-ascii {
+    font-family: 'Courier New', monospace;
+    color: var(--text-tertiary);
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 40px 0 20px;
+    white-space: pre;
+    opacity: 0.5;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% {
+        transform: translate(0);
+    }
+    92% {
+        transform: translate(-2px, 2px);
+    }
+    94% {
+        transform: translate(2px, -2px);
+    }
+    96% {
+        transform: translate(-2px, -2px);
+    }
+    98% {
+        transform: translate(2px, 2px);
+    }
+}
+
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 80px;
+    }
+
+    .error-message {
+        font-size: 20px;
+    }
+
+    .error-ascii {
+        font-size: 10px;
+    }
+}
+</style>
+
+<div class="error-container">
+    <h1 class="error-code">404</h1>
+    <p class="error-message">PAGE NOT FOUND</p>
+    <p class="error-description">
+        Looks like you've wandered into uncharted territory. The page you're looking for doesn't exist,
+        or maybe it's hiding in a different directory.
+    </p>
+
+    <div class="error-links">
+        <a href="/" class="error-link">← Back to Home</a>
+        <a href="/all-posts/" class="error-link">View All Posts</a>
+        <a href="/articles/" class="error-link">Read Articles</a>
+    </div>
+
+    <div class="error-ascii">
+    _______________
+   /               \
+  /  ERROR: 404    \
+ |   File Not      |
+ |   Found         |
+  \               /
+   \_____________/
+        ||
+        ||
+       _||_
+      [____]
+    </div>
+</div>
